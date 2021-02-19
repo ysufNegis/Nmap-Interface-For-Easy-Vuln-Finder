@@ -1,0 +1,2 @@
+python nmapinterface\nmapinterface.py
+pause
