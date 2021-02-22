@@ -55,7 +55,7 @@ def wafbypass(input):
     os.system("cls")
     print("Start Scanning...")
     wait.sleep(4)
-    os.system("nmap.exe -A -ip -D 1.1.1.1,3.4.4.4,8.8.8.8 "+input)
+    os.system("nmap.exe --script firewall-bypass "+input)
 
 def topports(input):
     os.system("cls")
@@ -104,7 +104,8 @@ def httpconfig(input):
     print("Start Scannning...")
     wait.sleep(4)
     os.system("nmap.exe -n -p80 --script http-config-backup "+input)
-
+def clear(input):
+	os.system("cls")
 
 count = 1
 
@@ -138,7 +139,7 @@ easyvuln > """)
     if(a =="1"):
         target = input("Target Web Site | easyvuln > ")        
         if(target == "quit"):
-            count +=1
+            sys.exit()
         elif(target == "home"):
             os.system("cls")
             continue
@@ -149,7 +150,7 @@ easyvuln > """)
     elif(a == "2"):
         target = input("Target Web Site | easyvuln > ")
         if(target == "quit"):
-            break
+            sys.exit()
         elif target == "home":
             os.system("cls")
             continue
@@ -159,7 +160,7 @@ easyvuln > """)
     elif(a =="3"):
         target = input("Target Web Site | easyvuln > ")
         if target == "quit":
-            break
+            sys.exit()
         elif target == "home":
             os.system("cls")
             continue
@@ -169,7 +170,7 @@ easyvuln > """)
     elif a == "4":
         target = input("Target Web Site | easyvuln > ")
         if target == "quit":
-            break
+            sys.exit()
         elif target == "home":
             os.system("cls")
             continue
@@ -179,7 +180,7 @@ easyvuln > """)
     elif a == "5":
         target = input("Target Web Site | easyvuln > ")
         if target == "quit":
-            break
+            sys.exit()
         elif target == "home":
             os.system("cls")
             continue
@@ -188,7 +189,7 @@ easyvuln > """)
     elif a == "6":
         target = input("Target Web Site | easyvuln > ")
         if target == "quit":
-            break
+            sys.exit()
         elif(target == "home"):
             os.system("cls")
             continue
@@ -218,8 +219,7 @@ easyvuln > """)
 easyvuln > """)
             if(b == "1"):
                 if(b == "quit"):
-                    count +=1
-                    count2+=1
+                    sys.exit()
                 elif b == "home":
                     count2+=1
                 else:
@@ -227,8 +227,7 @@ easyvuln > """)
                     wafbypass(target)
             elif(b == "2"):
                 if b == "quit":
-                    count+=1
-                    count2+=2
+                    sys.exit()
                 elif b == "home":
                    
                      count2+=1
@@ -314,8 +313,7 @@ easyvuln > """)
                         
             elif(b == "3"):
                 if b == "quit":
-                    count+=1
-                    count2+=1
+                    sys.exit()
                 elif b == "home":
                     os.system("cls")
                     count2+=1
@@ -328,8 +326,7 @@ easyvuln > """)
             elif(b=="4"):
                 target = input("Target Web Site | easyvuln > ")  
                 if target =="quit":
-                    count+=1
-                    count2+=1
+                    sys.exit()
                 elif target =="home":
                     os.system("cls")
                     count2+=1
@@ -339,8 +336,7 @@ easyvuln > """)
             elif(b == "5"):
                 target = input("Target Web Site | easyvuln > ")  
                 if target == "quit":
-                    count +=1
-                    count2 +=2
+                    sys.exit()
                 elif target == "home":
                     os.system("cls")
                     count2 +=1
@@ -351,8 +347,7 @@ easyvuln > """)
             elif b == "6":
                 target = input("Target Web Site | easyvuln > ")  
                 if target == "quit":
-                    count +=1
-                    count2 +=1
+                    sys.exit()
                 elif target == "home":
                     os.system("cls")
                     count2+=1
@@ -360,8 +355,7 @@ easyvuln > """)
                     malscan(target)
                 
             elif b == "quit":
-                count +=1
-                count2 +=1
+                sys.exit()
             elif b == "home":
                 os.system("cls")
                 count2 +=1
@@ -381,14 +375,15 @@ easyvuln > """)
 For Exit : "quit" 
 For go main page : "home" 
 For banner : "banner" 
-For owner : "owner" """)
+For owner : "owner" 
+""")
         wait.sleep(2)
         
 
 
         
     elif a == "quit":
-        count = count + 1
+        sys.exit()
     elif a == "banner":
         banner()
     elif a == "owner":
