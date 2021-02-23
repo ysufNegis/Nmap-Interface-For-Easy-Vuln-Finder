@@ -140,39 +140,72 @@ def vulnscan(port,inputs):
     print("Start Scanning...")
     wait.sleep(4)
     os.system("nmap.exe -sV "+port+" --script=vulscan/vulscan "+inputs)
+def ipscan(input):
+    os.system("cls")
+    print("Start Scanning...")
+    wait.sleep(4)
+    os.system("nmap.exe -sO "+input)
+def ethsend(input):
+    os.system("cls")
+    print("Start Scanning...")
+    wait.sleep(4)
+    os.system("nmap.exe --send-eth "+input)
+def sendip(input):
+    os.system("cls")
+    print("Start Scanning...")
+    wait.sleep(4)
+    os.system("nmap.exe --send-ip "+input)
+def fastscan(input):
+    os.system("cls")
+    print("Start Scanning...")
+    wait.sleep(4)
+    os.system("nmap.exe -F "+input)
+def osdetect(input):
+    os.system("cls")
+    print("Start Scanning...")
+    wait.sleep(4)
+    os.system("nmap.exe -O "+input)
+def osguess(input):
+    os.system("cls")
+    print("Start Scanning...")
+    wait.sleep(4)
+    os.system("nmap.exe  -O --osscan-guess "+input)
+def traceos(input):
+    os.system("cls")
+    print("Start Scanning...")
+    wait.sleep(4)
+    os.system("nmap.exe -sV --version-trace "+input)
+def rpcscan(input):
+    os.system("cls")
+    print("Start Scanning...")
+    wait.sleep(4)
+    os.system("nmap.exe -sR "+input)
 
 count = 1
 try:
     os.system("cls")
 
     while(count<2):
-        print("""
-    ███╗   ██╗███╗   ███╗ █████╗ ██████╗     ███████╗ █████╗ ███████╗██╗   ██╗    ██╗   ██╗  ███████╗
-    ████╗  ██║████╗ ████║██╔══██╗██╔══██╗    ██╔════╝██╔══██╗██╔════╝╚██╗ ██╔╝    ██║   ██║  ██╔════╝
-    ██╔██╗ ██║██╔████╔██║███████║██████╔╝    █████╗  ███████║███████╗ ╚████╔╝     ██║   ██║  █████╗  
-    ██║╚██╗██║██║╚██╔╝██║██╔══██║██╔═══╝     ██╔══╝  ██╔══██║╚════██║  ╚██╔╝      ╚██╗ ██╔╝  ██╔══╝  
-    ██║ ╚████║██║ ╚═╝ ██║██║  ██║██║         ███████╗██║  ██║███████║   ██║        ╚████╔╝██╗██║     
-    ╚═╝  ╚═══╝╚═╝     ╚═╝╚═╝  ╚═╝╚═╝         ╚══════╝╚═╝  ╚═╝╚══════╝   ╚═╝         ╚═══╝ ╚═╝╚═╝     
-    redhackaze.org | MyPoison                                                                                                 """)
+        banner()
         
         
         
 
         a = input("""
-    1)Easy Scanning
-    2)Version Scanning
-    3)Agresive Scanning
-    4)Only TCP Scanning
-    5)Only UDP Scanning
-    6)Vulnerability Scanning(CVE Searching)
-    7)Traceroute
-    8)TCP NULL Scan
-    9)Xmas Scan
-    10)Custom Send Flags
-    11)Extra Categories
-    12)Commands
+1)Easy Scanning
+2)Version Scanning
+3)Agresive Scanning
+4)Only TCP Scanning
+5)Only UDP Scanning
+6)Vulnerability Scanning(CVE Searching)
+7)Traceroute
+8)TCP NULL Scan
+9)Xmas Scan
+10)Custom Send Flags
+11)Extra Categories
+12)Commands
 
-    easyvuln > """)
+easyvuln > """)
         
         if(a =="1"):
             target = input("Target Web Site | easyvuln > ")        
@@ -184,6 +217,7 @@ try:
                 continue
             else:
                 fastscan(target)
+        
             
 
         elif(a == "2"):
@@ -239,23 +273,20 @@ try:
             count2 = 1
             while(count2<2):
 
-                print("""
-    ███╗   ██╗███╗   ███╗ █████╗ ██████╗     ███████╗ █████╗ ███████╗██╗   ██╗    ██╗   ██╗  ███████╗
-    ████╗  ██║████╗ ████║██╔══██╗██╔══██╗    ██╔════╝██╔══██╗██╔════╝╚██╗ ██╔╝    ██║   ██║  ██╔════╝
-    ██╔██╗ ██║██╔████╔██║███████║██████╔╝    █████╗  ███████║███████╗ ╚████╔╝     ██║   ██║  █████╗  
-    ██║╚██╗██║██║╚██╔╝██║██╔══██║██╔═══╝     ██╔══╝  ██╔══██║╚════██║  ╚██╔╝      ╚██╗ ██╔╝  ██╔══╝  
-    ██║ ╚████║██║ ╚═╝ ██║██║  ██║██║         ███████╗██║  ██║███████║   ██║        ╚████╔╝██╗██║     
-    ╚═╝  ╚═══╝╚═╝     ╚═╝╚═╝  ╚═╝╚═╝         ╚══════╝╚═╝  ╚═╝╚══════╝   ╚═╝         ╚═══╝ ╚═╝╚═╝     
-    redhackaze.org | MyPoison                                                                                                 """)
-        
+                banner()
                 b = input("""
-    1)Advanced Scan For Servers With Waf
-    2)Advanced Scripts
-    3)Only Scan on Top Ports
-    4)OS Service Detection
-    5)Dos Attack With Nmap(SlowLoris)
-    6)Malware Detecting On Server
-    easyvuln > """)
+1)Advanced Scan For Servers With Waf
+2)Advanced Scripts
+3)Only Scan on Top Ports
+4)OS Service Detection
+5)Dos Attack With Nmap(SlowLoris)
+6)Malware Detecting On Server
+7)IP Protocol Scan
+8)Send Raw Ethernet Packets
+9)Send IP Packets
+10)Fast Scan
+11)Advanced OS And Verison Detection
+easyvuln > """)
                 if(b == "1"):
                     if(b == "quit"):
                         quit(count)
@@ -275,23 +306,16 @@ try:
                         count3 =1
                         os.system("cls")
                         while(count3<2):
-                            print("""
-    ███╗   ██╗███╗   ███╗ █████╗ ██████╗     ███████╗ █████╗ ███████╗██╗   ██╗    ██╗   ██╗  ███████╗
-    ████╗  ██║████╗ ████║██╔══██╗██╔══██╗    ██╔════╝██╔══██╗██╔════╝╚██╗ ██╔╝    ██║   ██║  ██╔════╝
-    ██╔██╗ ██║██╔████╔██║███████║██████╔╝    █████╗  ███████║███████╗ ╚████╔╝     ██║   ██║  █████╗  
-    ██║╚██╗██║██║╚██╔╝██║██╔══██║██╔═══╝     ██╔══╝  ██╔══██║╚════██║  ╚██╔╝      ╚██╗ ██╔╝  ██╔══╝  
-    ██║ ╚████║██║ ╚═╝ ██║██║  ██║██║         ███████╗██║  ██║███████║   ██║        ╚████╔╝██╗██║     
-    ╚═╝  ╚═══╝╚═╝     ╚═╝╚═╝  ╚═╝╚═╝         ╚══════╝╚═╝  ╚═╝╚══════╝   ╚═╝         ╚═══╝ ╚═╝╚═╝     
-    redhackaze.org | MyPoison                                                                                                 """)
+                            banner()
                             
                             inputs = input("""
-    1)Http Enum (Profesoniel Index Scanning)
-    2)Vulnscan (Advanced Detecting Vuln on Server)
-    3)Dns Brute (Subdomain Scanner)
-    4)Http Config (Dump Web Site Config)
-    5)HTTP Backup Finder
-    6)Attempts to get a list of tables from a MongoDB database
-    easyvuln > """)
+1)Http Enum (Profesoniel Index Scanning)
+2)Vulnscan (Advanced Detecting Vuln on Server)
+3)Dns Brute (Subdomain Scanner)
+4)Http Config (Dump Web Site Config)
+5)HTTP Backup Finder
+6)Attempts to get a list of tables from a MongoDB database
+easyvuln > """)
                             if inputs == "1":
                                 target = input("Target Web Site | easyvuln > ")
                                 if target == "quit":
@@ -413,6 +437,103 @@ try:
                         count2+=1
                     else:
                         malscan(target)
+                elif b == "7":
+                    target = input("Target Web Site | easyvuln > ")
+                    if target == "quit":
+                        quit(count)
+                    elif target == "home":
+                        os.system("cls")
+                        count2+=1
+                    else:
+                        ipscan(target)
+                elif b == "8":
+                    target = input("Target Web Site | easyvuln > ")
+                    if target == "quit":
+                        quit(count)
+                    elif target == "home":
+                        os.system("cls")
+                        count2+=1
+                    else:
+                        ethsend(target)
+                elif b == "9":
+                    target = input("Target Web Site | easyvuln > ")
+                    if target == "quit":
+                        quit(count)
+                    elif target == "home":
+                        os.system("cls")
+                        count2+=1
+                    else:
+                        sendip(target)
+                elif b == "10":
+                    target = input("Target Web Site | easyvuln > ")
+                    if target == "quit":
+                        quit(count)
+                    elif target == "home":
+                        os.system("cls")
+                        count2+=1
+                    else:
+                        fastscan(target)
+                elif b == 11:
+                    count3 = 1
+                    while(count3<2):
+                        banner()
+                        bd = input("""
+1)Normal OS Detection
+2)Attempt to Guess an Unknown Operating System
+3)Troubleshooting Version Scans
+4)Perform an RPC Scan
+easyvuln > """)
+                        if bd == "quit":
+                            sys.exit()
+                        elif bd == "home":
+                            count2+=1
+                            count3+=1
+                        elif bd == "1":
+                            target = input("Target Web Site | easyvuln > ")
+                            if target == "quit":
+                                sys.exit()
+                            elif target == "home":
+                                count2+=1
+                                count3+=1
+                            else:
+                                osdetect(target)
+                        elif bd == "2":
+                            target = input("Target Web Site | easyvuln > ")
+                            if target == "quit":
+                                sys.exit()
+                            elif target == "home":
+                                count2+=1
+                                count3+=1
+                            else:
+                                osguess(target)
+                        elif bd == "3":
+                            target = input("Target Web Site | easyvuln > ")
+                            if target == "quit":
+                                sys.exit()
+                            elif target == "home":
+                                count2+=1
+                                count3+=1
+                            else:
+                                traceos(target)
+                        elif bd == "4":
+                            target = input("Target Web Site | easyvuln > ")
+                            if target == "quit":
+                                sys.exit()
+                            elif target == "home":
+                                count2+=1
+                                count3+=1
+                            else:
+                                rpcscan(target)
+                            
+
+
+                            
+
+
+                
+                    
+                
+
                     
                 elif b == "quit":
                     quit(count)
@@ -456,16 +577,16 @@ try:
         elif a == "10":
             target = input("Target Web Site | easyvuln > ")
             flags = input("""
-    Select Flag(s)        
-    SYN = Synchronize
-    ACK = Acknowledgment
-    PSH = Push
-    URG = Urgent
-    RST = Reset
-    FIN = Finished
-    e.g. FIN
-    e.g SYFIN
-    easyvuln > """) 
+Select Flag(s)        
+SYN = Synchronize
+ACK = Acknowledgment
+PSH = Push
+URG = Urgent
+RST = Reset
+FIN = Finished
+e.g. FIN
+e.g SYFIN
+easyvuln > """) 
             if target == "quit":
                 quit(count)
             elif target == "home":
